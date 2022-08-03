@@ -15,12 +15,12 @@
     "id": 3,
     "name": "Cat",
     "price": 50.99,
-    "imgUrl": "/imgs/banana.jpg"
+    "imgUrl": "/public/assets/cat.png"
   },
   {
     "id": 4,
     "name": "Car",
     "price": 16000,
-    "imgUrl": "/imgs/car.jpg"
+    "imgUrl": "/public/assets/car-bmw.png"
   }
 ]

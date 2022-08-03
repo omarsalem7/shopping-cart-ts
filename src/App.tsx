@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/nav';
-import Home from './components/home';
-import About from './components/about';
-import NoPage from './components/noPage';
-import Store from './components/store';
+import Home from './pages/home';
+import About from './pages/about';
+import NoPage from './pages/noPage';
+import Store from './pages/store';
 import './App.css';
 
 function App() {
