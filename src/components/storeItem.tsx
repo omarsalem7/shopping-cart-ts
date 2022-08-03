@@ -1,3 +1,4 @@
+import { GrAdd } from 'react-icons/gr';
 type storeItemType = {
   id: number;
   name: string;
@@ -16,8 +17,11 @@ const StoreItem = ({ id, name, price, imgUrl }: storeItemType) => {
         <div className="font-bold text-xl mb-2">{name}</div>
       </div>
       <div className="px-6 pt-4 pb-2">
-        <button className="w-56 bg-transparent hover:bg-teal-600 text-teal-600 font-semibold hover:text-white py-2 px-4 border border-teal-500 hover:border-transparent rounded">
-          Add to cart
+        <button className="text-center mb-1 w-56 bg-white-500 shadow-2xl hover:text-gray-800 hover:shadow-gray-800 text-gray-600 font-bold py-2 px-4 rounded-full">
+          <span className="flex justify-center items-center gap-2">
+            <GrAdd />
+            Add to cart
+          </span>
         </button>
       </div>
     </div>
