@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { BsFillCartFill } from 'react-icons/bs';
+import './nav.css';
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
@@ -58,13 +60,42 @@ export default function NavBar() {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-gray-600 hover:text-teal-600">
-                <NavLink to="/">Home</NavLink>
+                <NavLink
+                  to="/"
+                  className={({ isActive }) =>
+                    isActive ? 'text-teal-600' : ''
+                  }
+                >
+                  Home
+                </NavLink>
               </li>
               <li className="text-gray-600 hover:text-teal-600">
-                <NavLink to="/store">Store</NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? 'text-teal-600' : ''
+                  }
+                  to="/store"
+                >
+                  Store
+                </NavLink>
               </li>
               <li className="text-gray-600 hover:text-teal-600">
-                <NavLink to="/about">About</NavLink>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? 'text-teal-600' : ''
+                  }
+                  to="/about"
+                >
+                  About
+                </NavLink>
+              </li>
+              <li className="text-gray-600 hover:text-teal-600 cursor-pointer">
+                <BsFillCartFill size={'1.5em'} />
+                <span className="parent-icon">
+                  <span className="badge" id="lblCartCount">
+                    5
+                  </span>
+                </span>
               </li>
             </ul>
           </div>

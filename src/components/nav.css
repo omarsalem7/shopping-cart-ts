@@ -1,0 +1,22 @@
+.parent-icon {
+  position: relative;
+  width: 50px;
+}
+
+.badge {
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 9px;
+  position: absolute;
+  top: -8px;
+  right: -35px;
+}
+
+#lblCartCount {
+  font-size: 12px;
+  background: #4b5563;
+  color: #fff;
+  padding: 0 5px;
+  vertical-align: top;
+  margin-left: -10px;
+}
