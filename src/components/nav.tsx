@@ -12,7 +12,7 @@ export default function NavBar() {
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <NavLink to="/">
-              <h2 className="text-2xl font-bold text-teal-600">Shopping</h2>
+              <span className="text-2xl text-teal-600">Shopping</span>
             </NavLink>
             <div className="md:hidden">
               <button

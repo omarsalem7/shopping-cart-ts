@@ -1,4 +1,5 @@
 import { GrAdd } from 'react-icons/gr';
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { formatCurrency } from '../utilities/currencyFormat';
 type storeItemType = {
   id: number;
@@ -17,19 +18,35 @@ const StoreItem = ({ id, name, price, imgUrl }: storeItemType) => {
           alt="Sunset in the mountains"
         />
       </figure>
-      <div className="card-body items-center text-center">
-        <h2 className="card-title">Shoes!</h2>
+      <div className="px-3 card-body items-center text-center">
+        <div className="flex py-4 justify-between">
+          <span>{name}</span>
+          <span className="text-gray-500 text-sm">{formatCurrency(price)}</span>
+        </div>
         <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="px-6 py-3">
+        <div className="py-4">
           {quan === 0 ? (
-            <span>{quan}</span>
-          ) : (
-            <button className="text-center mb-1 w-56 bg-white-500 shadow-2xl hover:text-gray-800 shadow-gray-800 text-gray-600 font-bold py-2 px-4 ">
+            <button
+              className="text-center mb-1 w-56 bg-white-500 shadow-2xl
+             hover:text-gray-800 hover:scale-95 transition 
+              shadow-gray-800 text-gray-600 
+             font-bold py-2 px-4 "
+            >
               <span className="flex justify-center items-center gap-2">
                 <GrAdd />
                 Add to cart
               </span>
             </button>
+          ) : (
+            <div className="border-gray-500">
+              <button className="border-2 mr-2 p-1 border-gray-500">
+                <AiOutlinePlus />
+              </button>
+              <span className="">{quan}</span>
+              <button className="border-2 ml-2 p-1 border-gray-500">
+                <AiOutlineMinus />
+              </button>
+            </div>
           )}
         </div>
       </div>
