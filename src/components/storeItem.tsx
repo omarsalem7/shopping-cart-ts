@@ -1,14 +1,31 @@
 import { GrAdd } from 'react-icons/gr';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { formatCurrency } from '../utilities/currencyFormat';
+import { getItemQuantity } from '../utilities/cartItemsHelper';
 type storeItemType = {
   id: number;
   name: string;
   price: number;
   imgUrl: string;
+  items: {
+    id: number;
+    quantity: number;
+  }[];
+  increase: (id: number) => void;
 };
-const StoreItem = ({ id, name, price, imgUrl }: storeItemType) => {
-  const quan: number = 1;
+const StoreItem = ({
+  id,
+  name,
+  price,
+  imgUrl,
+  items,
+  increase,
+}: storeItemType) => {
+  const quantity = getItemQuantity(id, items);
+  console.log('#################');
+  console.log(increase);
+  console.log('#################');
+
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
       <figure className="px-10 pt-10">
@@ -25,8 +42,9 @@ const StoreItem = ({ id, name, price, imgUrl }: storeItemType) => {
         </div>
         <p>If a dog chews shoes whose shoes does he choose?</p>
         <div className="py-4">
-          {quan === 0 ? (
+          {quantity === 0 ? (
             <button
+              onClick={() => increase(id)}
               className="text-center mb-1 w-56 bg-white-500 shadow-2xl
              hover:text-gray-800 hover:scale-95 transition 
               shadow-gray-800 text-gray-600 
@@ -39,11 +57,17 @@ const StoreItem = ({ id, name, price, imgUrl }: storeItemType) => {
             </button>
           ) : (
             <div className="border-gray-500">
-              <button className="border-2 mr-2 p-1 border-gray-500">
+              <button
+                className="border-2 mr-2 p-1 border-gray-500"
+                onClick={() => increase(id)}
+              >
                 <AiOutlinePlus />
               </button>
-              <span className="">{quan}</span>
-              <button className="border-2 ml-2 p-1 border-gray-500">
+              <span className="">{quantity}</span>
+              <button
+                className="border-2 ml-2 p-1 border-gray-500"
+                // onClick={() => decreaseQuantity(id)}
+              >
                 <AiOutlineMinus />
               </button>
             </div>

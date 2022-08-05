@@ -1,7 +1,12 @@
-import React from 'react';
-
+type testProp = {
+  test: string;
+};
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <>
+      <div>Home</div>
+    </>
+  );
 };
 
 export default Home;
