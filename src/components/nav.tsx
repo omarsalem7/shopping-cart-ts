@@ -1,9 +1,15 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { BsFillCartFill } from 'react-icons/bs';
+import { getTotalItems } from '../utilities/cartItemsHelper';
+import { ItemType } from '../utilities/@types';
 import './nav.css';
 
-export default function NavBar() {
+type Items = {
+  items: ItemType[];
+};
+
+export default function NavBar({ items }: Items) {
   const [navbar, setNavbar] = useState(false);
 
   return (
@@ -93,7 +99,7 @@ export default function NavBar() {
                 <BsFillCartFill size={'1.5em'} />
                 <span className="parent-icon">
                   <span className="badge" id="lblCartCount">
-                    5
+                    {getTotalItems(items)}
                   </span>
                 </span>
               </li>

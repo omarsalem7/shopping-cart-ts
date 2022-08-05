@@ -47,7 +47,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <Navbar items={cartItems} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
