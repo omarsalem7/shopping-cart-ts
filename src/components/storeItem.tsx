@@ -12,6 +12,7 @@ type storeItemType = {
     quantity: number;
   }[];
   increase: (id: number) => void;
+  decrease: (id: number) => void;
 };
 const StoreItem = ({
   id,
@@ -20,11 +21,9 @@ const StoreItem = ({
   imgUrl,
   items,
   increase,
+  decrease,
 }: storeItemType) => {
   const quantity = getItemQuantity(id, items);
-  console.log('#################');
-  console.log(increase);
-  console.log('#################');
 
   return (
     <div className="card w-96 bg-base-100 shadow-xl">
@@ -48,7 +47,7 @@ const StoreItem = ({
               className="text-center mb-1 w-56 bg-white-500 shadow-2xl
              hover:text-gray-800 hover:scale-95 transition 
               shadow-gray-800 text-gray-600 
-             font-bold py-2 px-4 "
+             font-bold py-2 px-4"
             >
               <span className="flex justify-center items-center gap-2">
                 <GrAdd />
@@ -66,7 +65,7 @@ const StoreItem = ({
               <span className="">{quantity}</span>
               <button
                 className="border-2 ml-2 p-1 border-gray-500"
-                // onClick={() => decreaseQuantity(id)}
+                onClick={() => decrease(id)}
               >
                 <AiOutlineMinus />
               </button>

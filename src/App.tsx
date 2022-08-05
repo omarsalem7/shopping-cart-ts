@@ -12,8 +12,6 @@ function App() {
     { id: 1, quantity: 5 },
     { id: 3, quantity: 6 },
   ]);
-  console.log(cartItems);
-
   const increaseQuantity = (id: number) => {
     setCartItems((currentItems) => {
       if (currentItems.find((item) => item.id === id) == null) {

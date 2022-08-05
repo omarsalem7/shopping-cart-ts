@@ -10,7 +10,7 @@ type CartItemsType = {
   decrease: (id: number) => void;
 };
 
-const Store = ({ cartItems, increase }: CartItemsType) => {
+const Store = ({ cartItems, increase, decrease }: CartItemsType) => {
   return (
     <div className="">
       <h1 className="text-2xl  w-fit text-teal-600 mx-auto my-8">Store</h1>
@@ -18,6 +18,7 @@ const Store = ({ cartItems, increase }: CartItemsType) => {
         {items.map((item) => (
           <StoreItem
             increase={increase}
+            decrease={decrease}
             items={cartItems}
             key={item.id}
             {...item}
