@@ -4,6 +4,7 @@ import { BsFillCartFill } from 'react-icons/bs';
 import { getTotalItems } from '../utilities/cartItemsHelper';
 import { ItemType } from '../utilities/@types';
 import './nav.css';
+import CartDropdown from './cartDropDown';
 
 type Items = {
   items: ItemType[];
@@ -11,7 +12,11 @@ type Items = {
 
 export default function NavBar({ items }: Items) {
   const [navbar, setNavbar] = useState(false);
+  const [cart, setCart] = useState(false);
 
+  const toggleHidden = () => {
+    setCart(!cart);
+  };
   return (
     <nav className="w-full bg-white shadow">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
@@ -95,7 +100,10 @@ export default function NavBar({ items }: Items) {
                   About
                 </NavLink>
               </li>
-              <li className="text-gray-600 hover:text-teal-600 cursor-pointer">
+              <li
+                onClick={() => toggleHidden()}
+                className="text-gray-600 hover:text-teal-600 cursor-pointer"
+              >
                 <BsFillCartFill size={'1.5em'} />
                 <span className="parent-icon">
                   <span className="badge" id="lblCartCount">
@@ -105,6 +113,7 @@ export default function NavBar({ items }: Items) {
               </li>
             </ul>
           </div>
+          {cart ? null : <CartDropdown toggle={toggleHidden} items={items} />}
         </div>
       </div>
     </nav>
