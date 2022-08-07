@@ -12,13 +12,13 @@ type Items = {
 
 export default function NavBar({ items }: Items) {
   const [navbar, setNavbar] = useState(false);
-  const [cart, setCart] = useState(false);
+  const [cart, setCart] = useState(true);
 
   const toggleHidden = () => {
     setCart(!cart);
   };
   return (
-    <nav className="w-full bg-white shadow">
+    <nav className="w-full bg-white shadow fixed top-0">
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
