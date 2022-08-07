@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import { useState } from 'react';
-import Navbar from './components/nav';
+import NavBar from './components/nav';
 import Home from './pages/home';
 import About from './pages/about';
 import NoPage from './pages/noPage';
@@ -47,7 +48,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar items={cartItems} />
+        <NavBar items={cartItems} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
